@@ -13,12 +13,12 @@ awesomeDiv[0].style.width = "1000px";
 
 /*
 Mouse event listner list
-mousedown for holding the mouse button down
-mouseup for when the button it relesed
-dblclick for double click
-click for single click
-scroll for wheel on mouse
-mouseover for when the mouse is hovering over
+mousedown = for holding the mouse button down
+mouseup = for when the button it relesed
+dblclick = for double click
+click = for single click
+scroll = for wheel on mouse
+mouseover = for when the mouse is hovering over
 */
 btn.addEventListener ("dblclick", () => {
     btn.style.backgroundColor=("green")
