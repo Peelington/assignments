@@ -28,3 +28,8 @@ ul {
   .shoppingList::placeholder {
     color: grey;
   }
+
+  .delBtn {
+    margin: 10px;
+    padding: 10px;
+  }

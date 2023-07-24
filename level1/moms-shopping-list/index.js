@@ -18,7 +18,7 @@ form.addEventListener("submit", (e) => {
     console.log(cart)
     
     const delBtn = document.createElement("button")
-    delBtn.innerText = "delete"
+    delBtn.innerText = ""
     delBtn.setAttribute("id", "delBtn")
     newItem.append(delBtn)
     
@@ -34,14 +34,16 @@ form.addEventListener("submit", (e) => {
     
     
     editBtn.addEventListener("click", (e) => {
-        document.getElementById("listItem").textContent = newText
+        document.Focus();
+        editBtn.innerText = "save"
     })
     
-    const edit = document.createElement("input")
-    edit.setAttribute("id", "newText")
-    edit.setAttribute("type", "text")
-    edit.textContent = newText
-    document.getElementById("listItem").append("inupt")
+
+    //const edit = document.createElement("input")
+    //edit.setAttribute("id", "newText")
+    //edit.setAttribute("type", "text")
+    //edit.textContent = newText
+    //document.getElementById("listItem").append("inupt")
     
 })    
 
