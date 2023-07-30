@@ -30,8 +30,8 @@ theme.addEventListener ("change", (e) => {
             right[i].style.backgroundColor=("red");
             left[i].style.backgroundColor=("black");
             left[i].style.color= "white"}
-        };
-        if (e.target.value === "theme-one") {
+        }
+        else if (e.target.value === "theme-one") {
             for (i = 0; i < right.length; i++){
                 right[i].style.backgroundColor=("lightblue");
                 left[i].style.backgroundColor=("burlywood")
