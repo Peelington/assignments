@@ -1,6 +1,9 @@
 const form = document["shoppingList"]
 var food = document.getElementById("food")
 var newText = document.getElementById("newText")
+//for Edit button
+
+// const end_button = document.getElementById("end-editing");
 
 
 
@@ -17,8 +20,9 @@ form.addEventListener("submit", (e) => {
     shoppingList.cart.value = ""
     console.log(cart)
     
+    //delete button
     const delBtn = document.createElement("button")
-    delBtn.innerText = ""
+    delBtn.innerText = "delete"
     delBtn.setAttribute("id", "delBtn")
     newItem.append(delBtn)
     
@@ -26,31 +30,32 @@ form.addEventListener("submit", (e) => {
         document.getElementById("listItem").remove(newItem)
     })    
     
-    
-    const editBtn = document.createElement("button")
+    // edit button
+    var editBtn = document.createElement("button")
     editBtn.innerText = "edit"
     editBtn.setAttribute("id", "editBtn")
     newItem.append(editBtn)
-    
+
     
     editBtn.addEventListener("click", (e) => {
-        document.Focus();
-        editBtn.innerText = "save"
+    listItem.contentEditable = true;
+    listItem.style.backgroundColor = "#dddbdb";
+    const endEdit = document.createElement("button")
+    endEdit.innerText = "Finish"
+    endEdit.setAttribute("id", "endEdit")
+    newItem.append(endEdit)
+     });
+
+
+
+     // finish edit button
+     endEdit.addEventListener("click", (e) => {
+     listItem.contentEditable = false;
+     listItem.style.backgroundColor = ("#FF0000");
+     document.getElementById("endEdit").remove(endEdit)
+      })
+
+    
+   
+
     })
-    
-
-    //const edit = document.createElement("input")
-    //edit.setAttribute("id", "newText")
-    //edit.setAttribute("type", "text")
-    //edit.textContent = newText
-    //document.getElementById("listItem").append("inupt")
-    
-})    
-
-//const endBtn = document.createElement("button")
-//endBtn.innerText = "change"
-//endBtn.setAttribute("id", "endBtn")
-//newItem.append(endBtn)
-
-
-
