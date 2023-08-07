@@ -1,0 +1,127 @@
+html, body {
+    margin: 0;
+    padding: 10px;
+    font-family: sans-serif;
+    text-align: center;
+    justify-content: center;
+    
+    
+    
+}
+
+/* Phones */
+#grid-container {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(6, 1fr);
+}
+
+#header {
+    background-color: red;
+    border: 2px solid black;
+    border-radius: 25px;
+    grid-column: 1 / 5;
+    grid-row: 1 /2;
+}
+
+#sidebar {
+    background-color: blue;
+    border: 2px solid black;
+    border-radius: 25px;
+    grid-column: 1 / 5;
+    grid-row: 2 / 3;
+}
+
+#content {
+    background-color: purple;
+    border: 2px solid black;
+    border-radius: 25px;
+    grid-column: 1 / 5;
+    grid-row: 3 / 5;
+}
+
+#sidebar2 {
+    background-color: green;
+    border: 2px solid black;
+    border-radius: 25px;
+    grid-column: 1 / 5;
+    grid-row: 5 / 6;
+}
+
+#footer {
+    background-color: coral;
+    border: 2px solid black;
+    border-radius: 25px;
+    grid-column: 1 / 5;
+    grid-row: 6 / 7;
+}
+
+/* Tablet */
+ @media (max-width: 800px) and (min-width:600px){
+    #grid-container {
+        grid-template-columns: repeat(4 1fr);
+        grid-template-rows: repeat(5 1fr);
+    }
+
+    #header {
+        grid-column: 1/5;
+        grid-row: 1 / 2;
+    }
+    
+    #sidebar {
+        grid-column: 1 / 2;
+        grid-row: 2 / 4;
+    }
+
+    #content {
+        grid-column: 2 / 5;
+        grid-row: 2 / 4;
+    }
+    #sidebar2 {
+        grid-column: 1 / 5;
+        grid-row: 4 / 5;
+    }
+
+    #footer {
+        grid-column: 1 / 5;
+        grid-row: 5 / 6;
+    } 
+   
+        
+    }
+
+/* laptop */
+@media (min-width: 800px) and (max-width: 1500px){
+    #grid-contaner {
+        grid-template-columns: auto (4 1fr);
+        grid-template-rows: auto (6 1fr);
+    }
+        #header {
+        grid-column: 1/5;
+        grid-row: 1 / 2;
+    }
+    
+    #sidebar {
+        grid-column: 1 / 2;
+        grid-row: 2 / 6;
+    }
+
+    #content {
+        grid-column: 2 / 4;
+        grid-row: 2 / 6;
+    }
+    #sidebar2 {
+        grid-column: 4 / 5;
+        grid-row: 2 / 6;
+    }
+
+    #footer {
+        grid-column: 1 / 5;
+        grid-row: 6 / 7;
+    }
+   
+   
+        
+}
+
