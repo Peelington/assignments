@@ -11,8 +11,8 @@ form.addEventListener("submit", (e) => {
     e.preventDefault()
     const cart = form.cart.value
     
-    const newItem = document.createElement("li")
     newItem.textContent = cart
+    const newItem = document.createElement("li")
     newItem.setAttribute("id" , "listItem")
     food.append(newItem)
     newItem.style.textAlign = "center"
