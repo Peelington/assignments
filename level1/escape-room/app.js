@@ -39,7 +39,7 @@ while(gameRunning){
             console.log('You find some newpaper clippings about an escape-room serial killer');
             
         } else if (!table) {
-            console.log('You feel a chill up ypur spine')
+            console.log('You feel a chill up your spine')
         }
 
     } if (search === 2) {
