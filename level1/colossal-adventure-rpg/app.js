@@ -18,16 +18,17 @@ class Fighter{
         console.log("Inventory: ", this.inv)
         }
     }
-let enemy1 = new Fighter("Goblin", 14, 5, ["Goblin earing"]);
-let enemy2 = new Fighter("Hobgoblin", 15, 7, ["Goblin fingers"]);
-let enemy3 = new Fighter("Orc", 16, 8, ["Orc teeth", "Orc Necklace"]);
-let enemy4 = new Fighter("Stabbin Eddy", 7, 9, ["Eddy's knife"]);
-let enemy5 = new Fighter("Eddy's MOM", 10, 1, ["empty "]);
+let enemy1 = new Fighter("Goblin", 40, 5, ["Goblin earing"]);
+let enemy2 = new Fighter("Hobgoblin", 55, 7, ["Goblin fingers"]);
+let enemy3 = new Fighter("Orc", 65, 8, ["Orc teeth", "Orc Necklace"]);
+let enemy4 = new Fighter("Stabbin Eddy", 75, 9, ["Eddy's knife"]);
+let enemy5 = new Fighter("Eddy's MOM", 100, 15, ["empty "]);
+let enemy6 = new Fighter("Eddies Brother", 60, 8, ["Eddie's Diary (He's sensitive)"] )
 
 let enemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
-let normies = [enemy1, enemy2, enemy3]
+let normies = [enemy1, enemy2, enemy3, enemy6]
 let miniBoss = [enemy4]
-let boss = [enemy5]
+let final = [enemy5]
 let defeated = []
 
 
@@ -42,6 +43,7 @@ let hero = new Fighter(`${player}`, 100, 8, playerInventory );
 checkIventory = function(){
     console.log(`name: ${player}`);
     console.log(`Inventory: ${playerInventory}`)
+   
 }
 // console.log(hero)
 // console.log(enemies)
@@ -54,13 +56,15 @@ function walk(){
         let walk = Math.floor(Math.random() * 4 + 1);  
         
             if (walk !== 1){
-                herp.hp +
-            console.log("walking...") 
+                hero.hp += 5;
+                console.log("Player hp:", hero.hp)
+                console.log("walking...") 
+                
                 
             console.log( walk )
             }else if ( walk === 1 ){
                 console.log("You run into an enemy")
-                console.log(walk)
+                console.log("walking was equal to", walk)
                 engage()
                 
             }
@@ -74,26 +78,31 @@ function walk(){
 // The fighting function
 function encounters (boss) {
     console.log( "in Encounters")
+    console.log( `You've encountered ${boss.name} Fight them to the death for GLORY`)
     console.log(boss)
-        console.log( `You've encountered ${boss.name} Fight them to the death for GLORY`)
         while ( boss.hp > 0 || hero.hp > 0){
-            console.log("encounter while loop")
             boss.hp -= hero.attPwr;
             if (boss.hp <= 0){
-                console.log(` Great now ${boss.name} has been defeat. I wonder how many more there are.`);
-                
-                console.log(boss.hp)
+                console.log(` Great now ${boss.name} has been defeated. I wonder how many more there are.`);
+                hero.attPwr += 2;
+                for ( i = 0; i < boss.inv.length; i++){
+                playerInventory.push(boss.inv[i])};
+                for (i = 0; i < normies.length; i++){
+                    if (normies[i] === boss){
+                        defeated.push(boss);
+                        normies.splice(i, 1)
+                    }
+                }
+                console.log(hero)
+                console.log("enemy's health once dead", boss.hp)
                 break
             }
                 hero.hp -= boss.attPwr;
             if(hero.hp <= 0){
                 console.log(`How could you let a weakling like ${boss.name} beat you`)
-                console.log(hero.hp)
+                console.log("youre final health: ", hero.hp)
                 break
-            }
-                 
-                
-                
+            }      
             }
         } 
     
@@ -102,62 +111,46 @@ function encounters (boss) {
  function engage () {
     console.log("ENGAGE function triggered")
     enemyEncountered = readlineSync.keyIn("You've run into and enemy press: a to attack or press: r to run away   ", {limit: ['a', 'r']})
-    console.log('hellooooo')
         if( enemyEncountered === 'r' ){
-            console.log('inside r')
                 let flee = Math.floor(Math.random() * 2);
                     if ( flee === 0 ){
                         console.log( 'You got away safely.... you wont get very far being scared' )
                         console.log(flee);
                     }else if ( flee === 1 ){
                         console.log(flee);
-                        console.log(`an enemy attacked you as you fled.  name: ${hero}  Health: ${hero.hp}  Next time fight and stop being a coward`)
+                        console.log("an enemy attacked you as you fled." ) 
+                        ambush = Math.floor(Math.random() * 8 +1);
+                        hero.hp -= ambush;
+                        console.log(`name: ${hero.name}  Health: ${hero.hp}  Next time fight and stop being a coward`)
                 } 
         }else if(enemyEncountered === 'a'){
-            let enemy = Math.floor(Math.random() * normies.length);
-            console.log("before");
-            console.log('hello', hero.hp, normies[enemy].hp);
-            console.log('after')
-                encounters(normies[enemy])
-                
+            if ( normies.length >= 0 ){
+                let enemy = Math.floor(Math.random() * normies.length);
+                    encounters(normies[enemy])  
+            }             
+            }if( normies.length == 0 && miniBoss.length == 1 ){
+                encounters(miniBoss[0]);
+            }if( defeated.length > 3 ){
+                encounters(final[0]);
+                console.log("You have defeated Stabbin Eddie and his terrible gang, now choose to rule with an iron fist or be caring")
             }
     }
         
 
  
-//    
-//     }if( normies.length = 0 && miniBoss.length === 1 ){
-//         console.log('Mini boss works')
-//     }if( miniBoss.length = 0 && boss.length === 1 ){
-//         console.log(' boss works')
-// }
- 
 while(hero.hp > 0){
     walk()
 }
 
-//Encounters causing a infinite loop
-//Attacking while in engage
-//while loop for walking
+
 
 
 
 
 
     
-//     ### ***1 Story Point - Report as Story Point 83**
+
     
-// 3. Walking 
-// - Use a while loop to control this flow.
+
     
-//     ### ***4 Story Points - Report as Story Point 87**
-    
-// 1. If a wild enemy appears
-// - If attacking, a random amount of damage will be dealt between a min and max
-// - If the player kills the enemy you can give the Player some HP and special item that is stored in the inventory . After this, the player will continue walking.
-// - If the enemy kills the player the console prints a cool death message and the game ends
-    
-//     ### ***6 story points - Report as Story Point 93**
-    
-// 1. Inventory 
-// - When the player kills enemies, they are awarded with items (optional)
+
