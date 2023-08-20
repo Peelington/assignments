@@ -22,7 +22,7 @@ let enemy1 = new Fighter("Goblin", 40, 5, ["Goblin earing"]);
 let enemy2 = new Fighter("Hobgoblin", 55, 7, ["Goblin fingers"]);
 let enemy3 = new Fighter("Orc", 65, 8, ["Orc teeth", "Orc Necklace"]);
 let enemy4 = new Fighter("Stabbin Eddy", 75, 9, ["Eddy's knife"]);
-let enemy5 = new Fighter("Eddy's MOM", 100, 15, ["empty "]);
+let enemy5 = new Fighter("Eddy's MOM", 90, 15, ["empty "]);
 let enemy6 = new Fighter("Eddies Brother", 60, 8, ["Eddie's Diary (He's sensitive)"] )
 
 let enemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
@@ -64,7 +64,7 @@ function walk(){
             console.log( walk )
             }else if ( walk === 1 ){
                 console.log("You run into an enemy")
-                console.log("walking was equal to", walk)
+                //console.log("walking was equal to", walk)
                 engage()
                 
             }
@@ -77,11 +77,12 @@ function walk(){
 
 // The fighting function
 function encounters (boss) {
-    console.log( "in Encounters")
+    //console.log( "in Encounters")
     console.log( `You've encountered ${boss.name} Fight them to the death for GLORY`)
     console.log(boss)
         while ( boss.hp > 0 || hero.hp > 0){
             boss.hp -= hero.attPwr;
+                console.log(`${boss.name} attacked you for ${boss.attPwr}`)
             if (boss.hp <= 0){
                 console.log(` Great now ${boss.name} has been defeated. I wonder how many more there are.`);
                 hero.attPwr += 2;
@@ -98,6 +99,8 @@ function encounters (boss) {
                 break
             }
                 hero.hp -= boss.attPwr;
+                console.log(`You attacked ${boss.name} for ${hero.attPwr}`)
+                readlineSync.prompt()
             if(hero.hp <= 0){
                 console.log(`How could you let a weakling like ${boss.name} beat you`)
                 console.log("youre final health: ", hero.hp)
@@ -109,7 +112,7 @@ function encounters (boss) {
  
 // fight or run choice
  function engage () {
-    console.log("ENGAGE function triggered")
+    //console.log("ENGAGE function triggered")
     enemyEncountered = readlineSync.keyIn("You've run into and enemy press: a to attack or press: r to run away   ", {limit: ['a', 'r']})
         if( enemyEncountered === 'r' ){
                 let flee = Math.floor(Math.random() * 2);
@@ -128,11 +131,11 @@ function encounters (boss) {
                 let enemy = Math.floor(Math.random() * normies.length);
                     encounters(normies[enemy])  
             }             
-            }if( normies.length == 0 && miniBoss.length == 1 ){
+            }if( normies.length === 0 && miniBoss.length === 1 ){
                 encounters(miniBoss[0]);
             }if( defeated.length > 3 ){
                 encounters(final[0]);
-                console.log("You have defeated Stabbin Eddie and his terrible gang, now choose to rule with an iron fist or be caring")
+                console.log("You have defeated Stabbin Eddie and his terrible gang, now choose to rule with an iron fist or be a caring Leader")
             }
     }
         
