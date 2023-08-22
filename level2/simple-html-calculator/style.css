@@ -1,0 +1,55 @@
+html {
+    text-align: center;
+}
+body {
+     display: grid;
+     grid-template-columns: repeat(6, 1fr);
+     grid-template-rows: auto; 
+}
+
+h1 {
+    grid-column: 2/6;
+    color: maroon;
+    border: 4px solid maroon;
+    background-color: rgb(206, 183, 81);
+}
+
+#result {
+    grid-row: 5;
+    grid-column: 3/4;
+    
+}
+
+#addition {
+    text-align: left;
+    grid-row: 2;
+    grid-column: 4/5;
+}
+#subtraction {
+    text-align: left;
+    grid-row: 3;
+    grid-column: 4/5;
+}
+#multiplacation {
+    text-align: left;
+    grid-row: 4;
+    grid-column: 4/5;
+}
+#addNum1 {
+    width: 100px;
+}
+#addNum2 {
+    width: 100px;
+}
+#subNum1 {
+    width: 100px;
+}
+#subNum2 {
+    width: 100px;
+}
+#multiNum1 {
+    width: 100px;
+}
+#multiNum2 {
+    width: 100px;
+}

@@ -22,7 +22,7 @@ let enemy1 = new Fighter("Goblin", 40, 5, ["Goblin earing"]);
 let enemy2 = new Fighter("Hobgoblin", 55, 7, ["Goblin fingers"]);
 let enemy3 = new Fighter("Orc", 65, 8, ["Orc teeth", "Orc Necklace"]);
 let enemy4 = new Fighter("Stabbin Eddy", 75, 9, ["Eddy's knife"]);
-let enemy5 = new Fighter("Eddy's MOM", 90, 15, ["empty "]);
+let enemy5 = new Fighter("Eddy's MOM", 90, 15, ["slightly melted m&ms "]);
 let enemy6 = new Fighter("Eddies Brother", 60, 8, ["Eddie's Diary (He's sensitive)"] )
 
 let enemies = [enemy1, enemy2, enemy3, enemy4, enemy5];
@@ -49,14 +49,14 @@ checkIventory = function(){
 // console.log(enemies)
     
 
-  // walking funtion.. want to put it in a while loop     
+  // walking funtion.. 
 function walk(){
     playerAction = readlineSync.keyIn("press W to start walking or press p to check your inventory  ", {limit: ['w', 'p']})
     if( playerAction === 'w'){ 
         let walk = Math.floor(Math.random() * 4 + 1);  
         
             if (walk !== 1){
-                hero.hp += 5;
+                hero.hp += 7;
                 console.log("Player hp:", hero.hp)
                 console.log("walking...") 
                 
@@ -85,7 +85,7 @@ function encounters (boss) {
                 console.log(`${boss.name} attacked you for ${boss.attPwr}`)
             if (boss.hp <= 0){
                 console.log(` Great now ${boss.name} has been defeated. I wonder how many more there are.`);
-                hero.attPwr += 2;
+                hero.attPwr += 3;
                 for ( i = 0; i < boss.inv.length; i++){
                 playerInventory.push(boss.inv[i])};
                 for (i = 0; i < normies.length; i++){
