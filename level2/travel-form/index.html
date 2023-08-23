@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+    </head>
+    <body>
+        <h1> Where would you like to tavel to?</h1>
+
+        <form name = "travel">
+            <p>
+                First Name:
+                <input type="text" name="firstName" placeholder="First Name"/>
+            </p>
+            <p>
+                Last Name:
+                <input type="text" name="lastName" placeholder="Last Name"/>
+            </p>
+            <p>
+                Age:
+                <input type="number" min="0" max="125" name = "age" />
+            </p>
+            <p>
+            Sex:
+            Male: <input type="radio" name="gender" value="Male" />
+            Female: <input type="radio" name="gender" value="Female" />   
+            </p>
+            Location to travel
+            <select name="destination">
+                <option>Japan</option>
+                <option>Rome</option>
+                <option>Fiji</option>
+                <option>Germany</option>
+                <option>Italy</option>
+            </select> 
+            dietary preferance
+            <select name="diet">
+                <option>Vegan</option>
+                <option>Keto</option>
+                <option>Palieo</option>
+                <option>vegitarian</option>
+                <option>Carnivore</option>
+            </select>
+
+            <button> Submit </button>
+
+        </form>
+        <script src="app.js"></script>    
+    </body>
+</html>
