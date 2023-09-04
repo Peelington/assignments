@@ -1,0 +1,77 @@
+{
+   "menu": [
+    [
+        {
+            "appitizers":[
+                {
+                    "name": "Cheese Curds",
+                    "ingredients": ["cheddar", "Beer batter"],
+                    "description": "golden brown fried cheese"
+                },
+                
+                {
+                    "name": "Potato Skins",
+                    "ingredients": ["Potatos", " Cheddar cheese", "Bacon", "Sour Cream"],
+                    "description": "Load potato skins topped with Cheese, Bacon, and Sour Cream"
+                }
+            ],
+            "cold Sandwiches": [
+                
+                {
+                    "name": "BLT",
+                    "ingredients": ["Bread", "lettuce", "tomatoes", "bacon"],
+                    "description": "Bacon, Lettuce, and tomato on bread"
+                },
+
+                {
+                    
+                    "name": "Ham and Turkey",
+                    "ingredients":["bread", "ham", "turkey", "mayo", "lettuce"],
+                    "description":"Ham and Turkey with crips tomato and lettuce"
+                    
+                }
+            ],
+            "hot Sandwiches": [
+                {
+                    "name": "Pizza sub",
+                    "ingredients": ["bread", "maranara sauce", "pepperoni", "mozzerella cheese"],
+                    "description": "Every thing you love about pizza now in a sandwhich"
+                },
+
+                {
+                
+                    "name": "Grilled Cheese",
+                    "ingredients": ["bread", " Cheddar cheese"],
+                    "description": "just a classic grilled cheese"
+                
+                }
+            ],
+            "desserts": [
+                {
+                    "name": "New York Cheesecake",
+                    "ingredients": ["gramcracker", "butter", "cream cheese", "vanilla"],
+                    "description": "defrosted cheese cake from a box"
+                },
+
+                {
+                    "name": "Bannana Pudding",
+                    "ingredients": ["banannas", "gellaten", "cream", "MSG", "sugar"],
+                    "description": "only thing worth getting, we pride ourselfs on this dish!!!"
+                }
+            ],
+            "drinks": [
+                {
+                    "name":"water", 
+                    "ingredients": ["H2O"],
+                    "description":"its water"
+                },
+                {
+                    "name": "orange juice",
+                    "ingredients": ["orange juice"],
+                    "description": "juice from strangled oranges"
+                }
+            ]
+        }
+    ]
+   ] 
+}
