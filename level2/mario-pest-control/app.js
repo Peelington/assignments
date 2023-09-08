@@ -15,7 +15,11 @@ form.addEventListener('submit', (e) => {
     let cTotal = cheep * 11;
     let total = gTotal + bTotal + cTotal
    
-   invoice.textContent = (`Billing invoice: \r Gombas: ${gomba}\rBob-ombs: ${bob}\rCheep-Cheeps: ${cheep}\rTotal: ${total} coins`)
+   invoice.textContent = (`Billing invoice: \n
+   Gombas: ${gomba}\n
+   Bob-ombs: ${bob}\n
+   Cheep-Cheeps: ${cheep}\n
+   Total: ${total} coins`)
     // console.log('g',gomba,'b', bob,'c', cheep,'total', total)
     
 });

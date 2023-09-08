@@ -1,0 +1,33 @@
+
+#formBox {
+    border: 3px solid black;
+    margin: 5px;
+}
+
+#listedTasks {
+    border: 3px solid black;
+    margin: 5px;
+    min-height: 100px;
+    max-height: fit-content;
+}
+
+#delete {
+    height: 20px;
+    width: 50px;
+}
+
+@media screen and (min-width: 390px) and (max-width: 844px) {
+
+}
+
+@media screen and (min-width: 844px) and (max-width: 390px) {
+    
+}
+
+@media screen and (min-width: 820px) and (max-width: 1180px) {
+    
+}
+
+@media screen and (min-width: 1024px) and (max-width: 1024px) {
+    
+}
