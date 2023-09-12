@@ -19,8 +19,18 @@ function listData(data){
     for(let i = 0; i < data.length; i++){
         var id = data[i]._id
         // console.log(id)
+
 //div container
         const div = document.createElement('div');
+        div.setAttribute('id', 'divTaskBox');
+        div.style.border = 'solid black 2px';
+        div.style.borderRadius = '10px';
+        div.style.background = 'white';
+
+// button div
+        const btnDiv = document.createElement('div');
+        btnDiv.setAttribute('id', 'btnDiv')
+        
          
 //title
         const h1 = document.createElement('h1');
@@ -35,12 +45,15 @@ function listData(data){
         h3.textContent = data[i].price
         h3.setAttribute('id', 'taskPrice')
 // Image
-        const img = document.createElement('img')
-        //img.src = data[i].imageUrl
+        let img = document.createElement('img')
+        img.setAttribute('id', 'taskImg')
+        img.src = data[i].imgUrl
+        console.dir({...img})
 
 //Delete button
         const delBtn = document.createElement('button')
         delBtn.textContent = "delete"
+        delBtn.setAttribute('id', 'delBtn')
         delBtn.addEventListener('click', function(){
             axios.delete(`https://api.vschool.io/alton/todo/${id}`)
                 .then(response => getData())
@@ -88,25 +101,17 @@ function listData(data){
                      price: tasks.price.value,
                      imgUrl: tasks.imgUrl.value
                  }
-
-
-
-                //  axios.post(`https://api.vschool.io/alton/todo${id}`, editedToDo)
-                //      .then(response => getData())
-                //      .catch(error => console.log(error))
-
-                }
-            // axios.post(`https://api.vschool.io/alton/todo/${id}`)
-            //     .then(response => edit())
-            //     .catch(error => console.log(error))            
+                }                   
         })
 //label and check box
         const label = document.createElement("label");
         label.textContent = "Completed";
+        label.setAttribute = ('id', 'label')
         div.appendChild(label);
 
         const checkbox = document.createElement('input')
         checkbox.setAttribute("type", "checkbox")
+        checkbox.setAttribute('id', 'check')
         checkbox.addEventListener('change', function(){
             checkbox.checked ? lineOut() : noLine()
             
@@ -138,7 +143,8 @@ function listData(data){
 
 //appending everything to the HTML page        
         listTasks.append(div)
-        div.append(h1, h2, h3, checkbox, label, delBtn, editBtn)
+        div.append(h1, h2, h3, img, btnDiv)
+        btnDiv.append(checkbox, label, delBtn, editBtn)
     }
     
 }

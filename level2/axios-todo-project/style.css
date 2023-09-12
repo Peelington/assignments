@@ -1,3 +1,6 @@
+html{
+    background-color: rgb(202, 197, 197);
+}
 body {
     margin: 0;
     padding: 0;
@@ -8,7 +11,6 @@ body {
 header {
     grid-column: 1 / 11;
     text-align: center;
-    padding: 10px 0;
     height: 5vh;
     display: flex;
     flex-direction: row;
@@ -16,7 +18,7 @@ header {
     justify-content: space-around;
     background: linear-gradient(to bottom, #0a94f0, #87bdd8);
     border: 3px solid black;
-    box-shadow: 0 2px 10px rgba(158, 42, 42, 0.5);
+    box-shadow: 0 2px 10px rgba(22, 221, 211, 0.5);
   }
 
   footer {
@@ -32,43 +34,138 @@ header {
     border: 3px solid black;
     border-radius: 10px;
     height: 3vw;
+    justify-content: space-around;
+    background: linear-gradient(to bottom, #0a94f0, #87bdd8);
+    box-shadow: 0 2px 10px rgba(158, 42, 42, 0.5);
+    }
+
+    #footerLogo{
+        height: 30px;
+        width: 30px;
+    }
+
+
+    div{
+    grid-column: 2 / 6;
+    background-color: white;
+    margin: 25px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  
+  #taskImg{
+
+    height: 125px;
+    width: 125px;
+  }  
+
+  #todo{
+    text-align: center;
+    font-size: 30px;
+  }
+
+  #submit{
+    height: 4vh;
+    width: 90%;
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 5px;
     background: linear-gradient(to bottom, #0a94f0, #87bdd8);
     box-shadow: 0 2px 10px rgba(158, 42, 42, 0.5);
   }
 
-  div{
-    border: 2px solid black;
-    
+  #title{
+    height: 4vh;
+    width: 90%;
+    background: linear-gradient(to bottom, #fdfdff, #e7e4e4);
+    border-bottom: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #price{
+    height: 4vh;
+    width: 90%;
+    background: linear-gradient(to bottom, #fdfdff, #e7e4e4);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #description{
+    height: 4vh;
+    width: 90%;
+    background: linear-gradient(to bottom, #fdfdff, #e7e4e4);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 5px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  #imgUrl{
+    height: 4vh;
+    width: 90%;
+    background: linear-gradient(to bottom, #fdfdff, #e7e4e4);
+    border: 1px solid black;
+    border-radius: 10px;
+    margin: 5px 5px;
+    justify-content: center;
+    align-items: center;
   }
 
   #taskTitle{
     text-align: center;
+    background-color: white;
     font-size: 25px;
 
   }
   #taskDescription{
     text-align: center;
+    background-color: white;
     font-size: 20px;
 
   }
   #taskPrice{
     text-align: center;
+    background-color: white;
     font-size: 20px;
-
   }
 
 #formBox {
     width: 100%;
-    height: 70vh;
+    height: 50vh;
     grid-column: 3 / 5;
     border: 3px solid black;
+    background-color: white;
     border-radius: 15px;
-    margin: 5px;
+    margin: 15px;
+}
+
+form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-self: center;
+}
+
+#divTaskBox{
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    
 }
 
 #projectTitle{
     grid-row: 2 / 3;
     grid-column: 1 / 11;
+    background-color: rgb(202, 197, 197);
     text-align: center;
     font-family: Papyrus, fantasy;
 }
@@ -76,37 +173,239 @@ header {
 #listedTasks {
     grid-row: 3 / 5;
     grid-column: 7 / 9;
+    background: linear-gradient(to bottom, #0a94f0, #87bdd8);
     overflow: scroll;
     
     border: 3px solid black;
     border-radius: 15px;
-    margin: 5px;
+    margin: 15px;
     min-height: 100px;
-    width: 100%;
-    height: 70vh;
+    width: 30vw;
+    height: 60vh;
+    
 }
 #listedTasks::-webkit-scrollbar {
     display: none;
 }
-#delete {
+
+
+#btnDiv{
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    gap: 10px;
+    background-color: white;
+}
+#delBtn {
+    display: inline;
     height: 20px;
     width: 50px;
+    border-radius: 5px;
+    margin-right: 10px;
+    background: linear-gradient(to bottom, #0a94f0, #87bdd8);
 }
 
+#button2 {
+    display: inline;
+    height: 20px;
+    width: 50px;
+    margin-right: 10px;
 
-
-@media screen and (min-width: 390px) and (max-width: 844px) {
-
+    border-radius: 5px;
+    background: linear-gradient(to bottom, #0a94f0, #87bdd8);
 }
+#label {
+    
+    height: 20px;
+    width: 50px;
+    margin-right: 10px;
 
-@media screen and (min-width: 844px) and (max-width: 390px) {
+    border-radius: 5px;
     
 }
 
-@media screen and (min-width: 820px) and (max-width: 1180px) {
-    
+#check{
+    height: 20px;
+    width: 30px;
+    margin-left: 10px;
+
+    border-radius: 5px;
 }
 
-@media screen and (min-width: 1024px) and (max-width: 1024px) {
+
+
+ @media screen and (max-width: 1024px) and (orientation:landscape) {
+    body{
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        flex-direction: column;
+        align-items: center;
+        }
     
-}
+    header{
+        height: 50%;
+        grid-column: 1 / 6;
+        
+    }
+
+    footer{
+        grid-column: 1 / 6;
+        
+    }
+
+    #todo{
+        font-size: 20px;
+        text-decoration: underline;
+    }
+
+    #title{
+        height: 4vh;
+        width: 30vw;
+        align-content: center;
+    }
+
+    #price{
+        height: 4vh;
+        width: 30vw;
+    }
+
+    #description{
+        height: 4vh;
+        width: 30vw;
+    }
+    #imgUrl{
+        height: 4vh;
+        width: 30vw;
+    }
+    #submit{
+        height: 4vh;
+        width: 30vw;
+    }
+
+    .tasksform{
+        justify-content: center;
+        align-items: center;
+        align-content: center;
+    }
+
+    #projectTitle{
+        height: 5vh;
+        grid-column: 1 / 6;
+        padding-bottom: 20px;
+        justify-content: top;
+    }
+
+    #taskTitle{
+        height: 5vh;
+        grid-column: 1 / 5;
+    }
+
+    #listedTasks {
+        grid-column: 4 / 6;
+        width: 70vw;
+        height: 70vh;
+        align-content: center;
+    }
+
+    #formBox {
+        grid-column: 1 / 3;
+        width: 45vw;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        
+    }
+
+    #divTaskBox{
+        display: flex;
+    }
+    
+    
+
+} 
+
+@media screen and (min-width: 844px) and (orientation: portrait) {
+    body{
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        flex-direction: column;
+        align-items: center;
+        }
+    
+    header{
+        grid-column: 1 / 4;
+        height: 5vh;
+        grid-row: 1;
+        border-radius: 5px;
+    }
+    footer{
+        grid-column: 1 / 4;
+        position: relative;
+        
+    }
+
+    #todo{
+        font-size: 60px;
+        text-decoration: underline;
+    }
+    #title{
+        font-size: 20px;
+    }
+
+    #divProjectTitle{
+        grid-column: 1 / 4;
+        height: fit-content;
+        margin: 0;
+        height: 30vh;
+    }
+
+    #taskTitle{
+        grid-column: 1 / 4;
+        height: 5vh;
+        font-size: 45px;
+    }
+
+    #taskDescription{
+        height: 5vh;
+        font-size: 45px;
+    }
+    #taskPrice{
+        height: 5vh;
+        font-size: 45px;
+    }
+
+    div{
+        grid-column: 2 / 3;
+    }
+
+    #listedTasks {
+        grid-row: 4 / 5;
+        grid-column: 2 / 3;
+        width: 80%;
+        height: fit-content;
+        padding: 5vh;
+        justify-self: center;
+        align-self: center;
+        
+    }
+    #formBox {
+        grid-column: 2 / 3;
+        grid-row: 3 / 4;
+        width: 80vw;
+        height: fit-content;
+        padding: 5vh;
+        margin: 2vh;
+    }
+    #divTaskBox{
+        grid-row: 3 /4;
+        grid-column: 1 / 3;
+        width: 75vw;
+        justify-self: center;
+        
+    }
+    
+    
+
+    
+}  
+
