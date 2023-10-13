@@ -1,0 +1,24 @@
+.square{
+  display: inline-block;
+  align-content: center;
+  height: 25rem;
+  width: 25rem;
+  border: 5px solid black;
+  margin: 50px;
+}
+
+.square-container{
+  display: flex;
+  justify-content: center;
+  
+}
+
+.btnDiv{
+
+}
+
+.button{
+  width: 100px;
+  margin: 10px;
+  
+}
