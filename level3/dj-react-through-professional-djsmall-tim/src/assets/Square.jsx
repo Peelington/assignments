@@ -1,7 +1,7 @@
-import { useState } from 'react'
+import React, { useState } from 'react'
 
 export default function Square(props){
-    console.log(props.color)
+    const[square, setSquare] = React.useState()
     return(
      <div 
         className="square"

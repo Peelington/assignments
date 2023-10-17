@@ -3,11 +3,14 @@ import React from 'react'
 import Square from './assets/Square'
 import './App.css'
 
+
 function App() {
   const [color, setColor] = React.useState(["white", "white", "white", "white"])
 
   const squareElement = color.map(color => (
-    <Square color={color} />
+    <Square 
+      color = {color} 
+    />
   ))
 
 
@@ -29,7 +32,7 @@ function App() {
   }
 
   function one(){
-    setColor(preColor => [preColor[0],"red", preColor[2], "green"])
+    setColor(preColor => ["red", "black", "black", "green"])
   }
 
   function two(){
@@ -46,6 +49,8 @@ function App() {
   function makeNoise(){
     setColor(preColor => preColor.map(color => color === 'white' ? 'black' : 'white'))
   }
+
+
 console.log(color)
   return (
     <>
