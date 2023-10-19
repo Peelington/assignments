@@ -1,0 +1,76 @@
+
+*{
+  align-items: center;
+}
+
+form{
+  display: inline-block;
+  width: 75%;
+  border: 2px solid black;
+  border-radius: 15px;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+span{
+  display: inline-flex;
+  margin: 15px;
+  width: 30%;
+}
+
+input{
+  width: 41rem;
+  height: 3rem;
+  margin: 20px;
+  font-size: 20px;
+  border: 2px solid black;
+  border-radius: 5px;
+}
+
+.comments{
+  height: 100px;
+  width: 95%;
+  margin: 20px;
+  font-size: 20px;
+}
+
+.commentBox{
+  border: 2px solid black;
+  width: 80%;
+  height: 100px;
+  margin: 20px;
+}
+
+.badge-info{
+  margin: 25px;
+  
+
+
+}
+
+.submitBtn{
+  display: block;
+  height: 50px;
+  width: 150px;
+  margin: 20px;
+}
+
+.badge-header{
+  font-size: 20px;
+  height: 30px;
+  padding-left: 10px;
+  margin-bottom: 20px;
+  border-radius: solid 3px transparent;
+  border-radius: 7px;
+  background-color: rgb(83, 83, 83);
+  color: white;
+}
+
+.badge-box{
+  border: 2px solid black;
+  width: 75%;
+  align-items: center;
+  border-radius: 10px;
+  margin-top: 5px;
+  padding-top: 0px;
+}
