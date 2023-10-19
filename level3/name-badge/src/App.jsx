@@ -2,9 +2,17 @@ import React, { useState } from 'react'
 import Badge from './Badge'
 import './App.css'
 
-
+var initIputs = {
+    firstName: "",
+    lastName: "",
+    email: "",
+    birthPlace: "",
+    phone: "",
+    favoriteFood: "",
+    comments: "",
+}
 function App() {
-  const [formData, setFormData] = useState('')
+  const [formData, setFormData] = useState(initIputs)
   const [badgeList, setBadgeList] = useState([])
 
   function handleChange(event){
@@ -16,14 +24,14 @@ function App() {
   }
 
   function handleSubmit(e){
-    e.preventDefault(
+    e.preventDefault()
       setBadgeList(prevBadgeList => {
         return [
         ...prevBadgeList,
         formData
       ]
       })
-      )
+      setFormData(initIputs)
   }
 
   const badges = badgeList.map(badge => (
@@ -46,32 +54,36 @@ function App() {
         <input onChange={handleChange}
         minLength={3}
         type='text' 
-        placeholder="First Name"
+        placeholder=" First Name"
         name="firstName"
+        value={formData.firstName}
         required
         />
 
         <input onChange={handleChange}
         minLength={3}
         type='text' 
-        placeholder="Last Name"
+        placeholder=" Last Name"
         name="lastName"
+        value={formData.lastName}
         required
         />
 
         <input onChange={handleChange}
         minLength={3}
         type='text' 
-        placeholder="E-mail"
+        placeholder=" E-mail"
         name="email"
+        value={formData.email}
         required
         />
 
         <input onChange={handleChange}
         minLength={3}
         type='text' 
-        placeholder="Place of Birth"
+        placeholder=" Place of Birth"
         name="birthPlace"
+        value={formData.birthPlace}
         required
         />
 
@@ -79,16 +91,18 @@ function App() {
         minLength={3}
         type='phone'
         pattern='[0-9]{10}'
-        placeholder="Phone no dashes ex(32125423650)"
+        placeholder=" Phone no dashes ex(32125423650)"
         name="phone"
+        value={formData.phone}
         required
         />
 
         <input onChange={handleChange}
         minLength={3}
         type='text' 
-        placeholder="Favorite Food"
+        placeholder=" Favorite Food"
         name="favoriteFood"
+        value={formData.favoriteFood}
         required
         />
 
@@ -97,7 +111,8 @@ function App() {
           onChange={handleChange}
           minLength={3}
           name='comments'
-          placeholder='Tells us about yourself'
+          value={formData.comments}
+          placeholder=' Tells us about yourself'
           className="comments">
 
           </textarea>
