@@ -1,0 +1,11 @@
+import React, {useState} from "react"
+
+export default function Square(props){
+
+    return(
+        <div 
+        className="square"
+        style = {{backgroundColor: `#${props.color}`}}
+     ></div>
+    )
+}
