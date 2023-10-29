@@ -1,5 +1,6 @@
 * {
   box-sizing: border-box;
+  justify-self: center;
 }
 
 body {
@@ -34,20 +35,21 @@ main{
 
 .main--form{
   display: inline-block;
-  align-items: center;
-  justify-content: center;
+  
+
 }
 .form{
   display: grid;
   grid-template: 40px 40px / 1fr 1fr;
-  align-items: center;
-  justify-content: center;
   justify-content: space-around;
   gap: 17px;
 }
 
 .form--input{
   display: inline-block;
+  margin: 10px;
+  height: 5vh;
+  width: 30vw;
   border-radius: 5px;
   border: 1px solid black;
   text-indent: 5px;
@@ -55,6 +57,8 @@ main{
 
 .memebtn{
   height: 5vh;
+  width: 40vw;
+  margin: 10px;
   border: none ;
   border-radius: 5px;
   background: linear-gradient(45deg, #7ac9e9 50%, #000000 100%);
@@ -62,7 +66,53 @@ main{
 }
 
 .meme--image{
+  max-width: 100%;
+  border-radius: 3px;
+}
+
+.meme--container {
+  position: relative;
+  margin: 3vh;
+}
+
+.meme {
   display: flex;
-  height: 38rem;
-  width: 50rem;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid black;
+  /* width: fit-content; */
+  margin: 15px;
+}
+
+.meme--text {
+  position: absolute;
+  width: 80%;
+  text-align: center;
+  left: 50%;
+  transform: translateX(-50%);
+  margin: 15px 0;
+  padding: 0 5px;
+  font-family: impact, sans-serif;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: white;
+  letter-spacing: 1px;
+  text-shadow:
+      2px 2px 0 #000,
+      -2px -2px 0 #000,
+      2px -2px 0 #000,
+      -2px 2px 0 #000,
+      0 2px 0 #000,
+      2px 0 0 #000,
+      0 -2px 0 #000,
+      -2px 0 0 #000,
+      2px 2px 5px #000;
+}
+
+.bottom {
+  bottom: 0;
+}
+
+.top {
+  top: 0;
 }
