@@ -9,8 +9,7 @@ h2{
 p{
   display: flex;
   justify-content: flex-start;
-  text-align: center;
-  
+  text-align: center; 
 }
 
 .header{

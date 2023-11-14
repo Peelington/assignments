@@ -1,5 +1,5 @@
 
-import React, { useState } from "react";
+import { useState } from "react";
 
 export default function SavedMemeList({ meme, deleteMeme, saveEditedMeme }) {
 
@@ -11,13 +11,16 @@ export default function SavedMemeList({ meme, deleteMeme, saveEditedMeme }) {
         memeId: meme.memeId
     })
 
+    //when Edit is click editing turns true
     const handleEditClick = () => {
       setEditing(true);
     };
   
+    // when cancel is click editing is set to false
     const handleCancelClick = () => {
       setEditing(false);
     };
+
 
     const handleChange = (e) => {
         const {name, value} = e.target
@@ -29,7 +32,7 @@ export default function SavedMemeList({ meme, deleteMeme, saveEditedMeme }) {
         })
     }
     
-  
+    // save button to update EdtitedMeme
     const handleSaveClick = () => {
       saveEditedMeme(meme.memeId, edit);
       setEditing(false);
@@ -40,7 +43,7 @@ export default function SavedMemeList({ meme, deleteMeme, saveEditedMeme }) {
     <>
       <div className="meme">
         <div className="meme--container">
-            <img src={meme.randomImage} className="meme--image" alt="Meme" />
+            <img src={meme.randomImage} className="meme--image" />
             <h2 className="meme--text top">{editing ? <input type="text" name="topText" value={edit.topText} onChange={handleChange} /> : meme.topText}</h2>
             <h2 className="meme--text bottom">{editing ? <input type="text" name="bottomText" value={edit.bottomText} onChange={handleChange} /> : meme.bottomText}</h2>
         </div>
