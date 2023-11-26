@@ -8,8 +8,6 @@ function ThemeContextProvider(props){
 
     function toggleTheme(value){
 
-        // setTheme(value)
-
         if(value === 'night'){
             setTheme('night')
             console.log('night')
