@@ -1,0 +1,13 @@
+nav{
+  display: flex;
+  justify-content: space-around;
+  height: 5vh;
+  background: linear-gradient(45deg, #15ccec 1%, #e0e2e0 100%);
+}
+
+.footer{
+  display: flex;
+  text-align: center;
+  justify-content: center;
+  background: linear-gradient(225deg, #15ccec 1%, #e0e2e0 100%);
+}
