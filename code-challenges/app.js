@@ -9,7 +9,14 @@
 //  words that have the same letters but in a different order.
 
 function filterAnagrams(arr, target) {
-    
+    let sorted = target.split('').sort().join('');
+    // console.log(sorted)
+    return arr.filter(word =>{
+        const sortedWord= word.split('').sort().join('')
+        // console.log(sortedWord)
+        return sortedWord === sorted
+    })
+   
 }
 
 const words = ['listen', 'silent', 'dog', 'god', 'hello', 'world'];
@@ -45,3 +52,22 @@ console.log(sortedPeople);
 //  { name: 'Alice', age: 30 },
 //  { name: 'Charlie', age: 35 }
 // ]
+
+
+function calculateTotalPrice(arr){
+    //map
+    let totalPrice = 0
+    arr.map(product =>{
+       const total = product.price * product.quantity
+       totalPrice += total
+       totalPrice = totalPrice + total
+    })
+    return totalPrice
+
+}
+const products = [
+    { name: 'Apple', price: 1.5, quantity: 3 },
+    { name: 'Banana', price: 0.75, quantity: 5 },
+    { name: 'Orange', price: 1.25, quantity: 2 },
+  ];
+console.log(calculateTotalPrice(products))
