@@ -28,7 +28,7 @@ bountyRouter.get("/", (req, res) => {
 
 
 //get one
-bountyRouter.get("/:bountiesId", (req, res) =>{
+bountyRouter.get("/:bountyId", (req, res) =>{
   const bountyId = req.params.bountyId
   const foundBounty = bounties.find(bounty => bounty._id === bountyId)
   res.send(foundBounty)
@@ -43,13 +43,23 @@ bountyRouter.post("/", (req, res) => {
   res.send(`SuccessFully added ${newBounty.firstName} ${newBounty.lastName} to Target list`);
 });
 
+//delete bounty
+bountyRouter.delete("/:bountyID", (req, res) => {
+  const bountyID = req.params.bountyID
+  const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyID)
+  bounties.splice(bountyIndex, 1)
+  res.send("Successfully deleted bounty")
+});
 
-// bountyRouter.delete("/:bountyID", (req, res) => {
-//   const bountyID = req.params.bountyID
-//   const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyID)
-//   bounties.splice(bountyIndex, 1)
-//   res.send("Successfully deleted bounty")
-// });
+
+//update
+bountyRouter.put("/:bountyId", (req, res) => {
+  const bountyId = req.params.bountyId
+  const bountyIndex = bounties.findIndex(bounty => bounty._id === bountyId)
+  const updatedBounty = Object.assign(bounties[bountyIndex], req.body)
+  res.send(updatedBounty)
+});
+
 
 
 module.exports = bountyRouter
