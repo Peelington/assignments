@@ -1,6 +1,5 @@
 const express = require('express')
-const bountyRouter = express.Router()
-// const { v4: uuidv4 } = require('uuid'); 
+const bountyRouter = express.Router() 
 const Bounty = require('../models/bounty.js');
 
 
@@ -8,12 +7,12 @@ const Bounty = require('../models/bounty.js');
 //routes
 // get all
 bountyRouter.get("/", (req, res, next) => {
-  Bounty.find((err, Bounty) => {
+  Bounty.find((err, bounties) => {
     if(err){
       res.status(500)
       return next(err)
     }
-    return res.status(200).send(Bounty)
+    return res.status(200).send(bounties)
   })
 });
 
@@ -21,7 +20,7 @@ bountyRouter.get("/", (req, res, next) => {
 //get one
 bountyRouter.get("/:bountyId", (req, res, next) =>{
   const bountyId = req.params.bountyId
-  const foundBounty = bounties.find(bounty => bounty._id === bountyId)
+  const foundBounty = Bounty.find(bounty => bounty._id === bountyId)
     if(!foundBounty){
       const error = new Error(`The Bounty with id${bountyID}couldn't be found`)
       return next(error)
@@ -30,7 +29,7 @@ bountyRouter.get("/:bountyId", (req, res, next) =>{
   // console.log(req.params.bountyId)
 })
 
-//post 0ne
+//post one
 bountyRouter.post("/", (req, res, next) => {
   const newBounty = new Bounty(req.body)
   newBounty.save((err, savedBounty) => {
@@ -38,13 +37,14 @@ bountyRouter.post("/", (req, res, next) => {
       res.status(500)
       return next(err)
     }
-    return res.status(201).send(newBounty)
+    return res.status(201).send(savedBounty)
   })
 });
 
 
 //search by faction
-bountyRouter.get("/search/type", (res, req, next) => {
+bountyRouter.get("/search/type", (req, res, next) => {
+  console.log(req.query.type)
   Bounty.find({type: req.query.type}, (err, bounties) =>{
     if(err){
       res.status(500)

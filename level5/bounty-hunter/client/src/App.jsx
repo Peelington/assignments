@@ -9,7 +9,7 @@ function App() {
 
   function getBounties() {
     axios.get('/api/bounties')
-    .then(res => console.log('bounties', res.data))
+    .then(res => setBounties(res.data))
     .catch(err => console.log(err))    
   }
 
@@ -39,7 +39,9 @@ function App() {
 
   function handleFilter(e){
     axios.get(`/api/bounties/search/type?type=${e.target.value}`)
-    .then(res => console.log(res))
+    // .then(res => console.log(res))
+    // .catch (err => console.log(err))
+    .then(res => setBounties(res.data))
     .catch (err => console.log(err))
   }
 
@@ -64,7 +66,7 @@ function App() {
       </select>
 
       <div className = 'bountyContainer'>
-        {bounties.map(bounty => 
+        {bounties && bounties.map(bounty => 
           <Bounty
             {...bounty} 
             key={bounty.firstName}
