@@ -1,0 +1,29 @@
+
+*{
+  margin: 0px;
+}
+
+.title{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 8vh;
+  background-color: purple;
+  color: aqua;
+}
+
+.nav-bar{
+  margin: 5px;
+  display: flex;
+  justify-content: space-between;
+  height: 8vh;
+
+}
+
+.about-page{
+  margin: 10px;
+}
+
+.about-title{
+  display: flex;
+}

@@ -8,22 +8,22 @@
 //  to filter a given array of words to find the anagrams of a target word. Anagrams are 
 //  words that have the same letters but in a different order.
 
-function filterAnagrams(arr, target) {
-    let sorted = target.split('').sort().join('');
-    // console.log(sorted)
-    return arr.filter(word =>{
-        const sortedWord= word.split('').sort().join('')
-        // console.log(sortedWord)
-        return sortedWord === sorted
-    })
+// function filterAnagrams(arr, target) {
+//     let sorted = target.split('').sort().join('');
+//     // console.log(sorted)
+//     return arr.filter(word =>{
+//         const sortedWord= word.split('').sort().join('')
+//         // console.log(sortedWord)
+//         return sortedWord === sorted
+//     })
    
-}
+// }
 
-const words = ['listen', 'silent', 'dog', 'god', 'hello', 'world'];
-const target = 'enlist';
+// const words = ['listen', 'silent', 'dog', 'god', 'hello', 'world'];
+// const target = 'enlist';
 
-const anagrams = filterAnagrams(words, target);
-console.log(anagrams); // Output: ['listen', 'silent']
+// const anagrams = filterAnagrams(words, target);
+// console.log(anagrams); // Output: ['listen', 'silent']
 
 
 // Write a function called sortByMultipleCriteria that takes an array of objects 
@@ -31,20 +31,20 @@ console.log(anagrams); // Output: ['listen', 'silent']
 // The function should return a new array with the people sorted first by age in 
 // ascending order, and then by name in alphabetical order.
 
-function sortByMultipleCriteria(people) {
-    people.sort(people.age)
+// function sortByMultipleCriteria(people) {
+//     people.sort(people.age)
 
-}
+// }
 
-const people = [
-{ name: 'Alice', age: 30 },
-{ name: 'Bob', age: 25 },
-{ name: 'Charlie', age: 35 },
-{ name: 'David', age: 25 },
-];
+// const people = [
+// { name: 'Alice', age: 30 },
+// { name: 'Bob', age: 25 },
+// { name: 'Charlie', age: 35 },
+// { name: 'David', age: 25 },
+// ];
 
-const sortedPeople = sortByMultipleCriteria(people);
-console.log(sortedPeople);
+// const sortedPeople = sortByMultipleCriteria(people);
+// console.log(sortedPeople);
 
 // Expected outcome: [
 //  { name: 'Bob', age: 25 },
@@ -54,20 +54,67 @@ console.log(sortedPeople);
 // ]
 
 
-function calculateTotalPrice(arr){
-    //map
-    let totalPrice = 0
-    arr.map(product =>{
-       const total = product.price * product.quantity
-       totalPrice += total
-       totalPrice = totalPrice + total
-    })
-    return totalPrice
+// function calculateTotalPrice(arr){
+//     //map
+//     let totalPrice = 0
+//     arr.map(product =>{
+//        const total = product.price * product.quantity
+//        totalPrice += total
+//        totalPrice = totalPrice + total
+//     })
+//     return totalPrice
 
+// }
+// const products = [
+//     { name: 'Apple', price: 1.5, quantity: 3 },
+//     { name: 'Banana', price: 0.75, quantity: 5 },
+//     { name: 'Orange', price: 1.25, quantity: 2 },
+//   ];
+// console.log(calculateTotalPrice(products))
+
+
+
+
+
+// function extractUniqueCharacters(strings) {
+
+//   let uniqueLetters = new Set();
+//   strings.forEach((word) => {
+//     word.split('').forEach((char) => {
+//       uniqueLetters.add(char);
+//     });
+//   });
+//   return Array(...uniqueLetters);
+// }
+
+// const words = ['apple', 'banana', 'cherry'];
+// const uniqueChars = extractUniqueCharacters(words);
+// console.log(uniqueChars); // Output: ['a', 'p', 'l', 'e', 'b', 'n', 'c', 'h', 'r', 'y']
+
+
+
+
+
+
+
+function sortByProperty(objects, propertyName) {
+  
+    return objects.slice().sort((a, b) => a[propertyName] - b[propertyName]);
 }
-const products = [
-    { name: 'Apple', price: 1.5, quantity: 3 },
-    { name: 'Banana', price: 0.75, quantity: 5 },
-    { name: 'Orange', price: 1.25, quantity: 2 },
-  ];
-console.log(calculateTotalPrice(products))
+
+const people = [
+  { name: 'Alice', age: 30 },
+  { name: 'Bob', age: 25 },
+  { name: 'Charlie', age: 35 },
+  { name: 'David', age: 28 },
+];
+
+const sortedByAge = sortByProperty(people, 'name');
+console.log(sortedByAge);
+
+
+
+  
+  
+
+  

@@ -13,8 +13,8 @@ const InventorySchema = new Schema({
   price:{
     type: Number,
     required: true
-  }
+  },
 
 })
 
-modulelexports = mongoose.model("Inventory", InventorySchema)
+module.exports = mongoose.model("Inventory", InventorySchema)
