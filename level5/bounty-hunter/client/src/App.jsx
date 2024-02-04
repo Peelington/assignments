@@ -39,8 +39,6 @@ function App() {
 
   function handleFilter(e){
     axios.get(`/api/bounties/search/type?type=${e.target.value}`)
-    // .then(res => console.log(res))
-    // .catch (err => console.log(err))
     .then(res => setBounties(res.data))
     .catch (err => console.log(err))
   }

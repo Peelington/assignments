@@ -6,7 +6,7 @@ const ProductSchema = new Schema({
     type: String,
     required: true
   },
-  type: {
+  furnitureType: {
     type: String,
     required: true
   },
@@ -17,8 +17,15 @@ const ProductSchema = new Schema({
   material: {
     type: String
   },
+  imgurl: {
+    type: String
+  },
   details: {
     type: String,
+  },
+  sold:{
+    type: Boolean,
+    required: true
   }
 })
 
