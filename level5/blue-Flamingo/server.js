@@ -20,17 +20,15 @@ async function connectToDB() {
 
 connectToDB().then(() => console.log('Connected to DB'))
 
-
 //routes
 
-app.use("/api/products", require('./routes/productRouter.js'))
+app.use("/products", require('./routes/productRouter.js'))
 
 //error handling
 app.use((err, req, res, next) => {
   console.log(err)
   return res.send({ errsMsg: err.message })
 })
-
 
 //listen
 app.listen(9000, () => {

@@ -15,6 +15,7 @@ productRouter.get('/', async (req, res, next) => {
 
 //get one
 productRouter.get('/:itemId', async (req, res, next) => {
+  console.log(res)
   try {
     const item = await Product.find({ _id: req.params.itemId })
     return res.status(200).send(item)

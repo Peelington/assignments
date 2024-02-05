@@ -7,16 +7,17 @@ function ProductContextProvider(props) {
 
   const [productItems, setProductItems] = useState([])
 
-  console.log(productItems)
+  // console.log(productItems)
 
   function getProducts() {
     axios.get('/api/products')
       .then(res => setProductItems(res.data))
+      // .then(res => console.log(res.data))
       .catch(err => console.log(err))
   }
 
 
-  console.log(productItems)
+  // console.log(productItems)
 
   useEffect(() => {
     getProducts()
