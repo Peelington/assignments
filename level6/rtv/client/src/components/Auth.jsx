@@ -4,42 +4,49 @@ import { UserContext } from '../context/UserProvider.jsx'
 
 const initInputs = { username: "", password: "" }
 
-export default function Auth(){
+export default function Auth() {
   const [inputs, setInputs] = useState(initInputs)
   const [toggle, setToggle] = useState(false)
 
-  const {signup, login} = useContext(UserContext)
+  const { signup, login, errMsg, resetAuthErr } = useContext(UserContext)
 
-  function handleChange(e){
-    const {name, value} = e.target
+  function handleChange(e) {
+    const { name, value } = e.target
     setInputs(prevInputs => ({
       ...prevInputs,
       [name]: value
     }))
   }
 
-  function handleSignup(e){
+  function handleSignup(e) {
     e.preventDefault()
+    console.log(inputs)
     signup(inputs)
   }
 
-  function handleLogin(e){
+  function handleLogin(e) {
     e.preventDefault()
     login(inputs)
+  }
+
+  function toggleForm(){
+    setToggle(prev => !prev)
+    resetAuthErr()
   }
 
   return (
     <div className="auth-container">
       <h1>Rock the Vote App</h1>
-      { !toggle ?
+      {!toggle ?
         <>
           <AuthForm 
             handleChange={handleChange}
             handleSubmit={handleSignup}
             inputs={inputs}
             btnText="Sign up"
+            errMsg={errMsg}
           />
-          <p onClick={() => setToggle(prev => !prev)}>Already a member?</p>
+          <p onClick={toggleForm}>Already a member?</p>
         </>
       :
         <>
@@ -48,8 +55,9 @@ export default function Auth(){
             handleSubmit={handleLogin}
             inputs={inputs}
             btnText="Login"
+            errMsg={errMsg}
           />
-          <p onClick={() => setToggle(prev => !prev)}>Not a member?</p>
+          <p onClick={toggleForm}>Not a member?</p>
         </>
       }
     </div>

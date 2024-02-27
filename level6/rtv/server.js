@@ -23,6 +23,9 @@ connectToDB().then(() => console.log('Connected to DB'))
 
 app.use('/auth', require('./routes/authRouter.js'))
 app.use("/api", expressjwt({secret: process.env.SECRET, algorithms: ['HS256']}))
+app.use('/api/issues', require('./routes/issueRouter.js'))
+app.use('/api/comments', require('./routes/commentRouter.js'))
+
 
 
 
