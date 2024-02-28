@@ -29,7 +29,7 @@ export default function Auth() {
     login(inputs)
   }
 
-  function toggleForm(){
+  function toggleForm() {
     setToggle(prev => !prev)
     resetAuthErr()
   }
@@ -39,7 +39,7 @@ export default function Auth() {
       <h1>Rock the Vote App</h1>
       {!toggle ?
         <>
-          <AuthForm 
+          <AuthForm
             handleChange={handleChange}
             handleSubmit={handleSignup}
             inputs={inputs}
@@ -48,9 +48,9 @@ export default function Auth() {
           />
           <p onClick={toggleForm}>Already a member?</p>
         </>
-      :
+        :
         <>
-          <AuthForm 
+          <AuthForm
             handleChange={handleChange}
             handleSubmit={handleLogin}
             inputs={inputs}

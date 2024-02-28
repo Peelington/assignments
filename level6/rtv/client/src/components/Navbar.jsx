@@ -5,8 +5,8 @@ export default function Navbar(props) {
   const { logout } = props
   return (
     <div className="navbar">
-      <Link to="/profile">Profile</Link>
-      <Link to="/public">Public</Link>
+      <Link to="/profile" className='navlink'>Profile</Link>
+      <Link to="/public" className='navlink'>Public</Link>
       <button onClick={logout}>logout</button>
     </div>
   )

@@ -4,17 +4,17 @@ import axios from "axios"
 export const UserContext = React.createContext()
 
 
-export default function UserProvider(props) { 
+export default function UserProvider(props) {
 
   const userAxios = axios.create()
-  
+
   userAxios.interceptors.request.use(config => {
     const token = localStorage.getItem('token')
     config.headers.Authorization = `Bearer ${token}`
     return config
   })
 
-  
+
   const initState = {
     user: JSON.parse(localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || "",
@@ -26,7 +26,8 @@ export default function UserProvider(props) {
   const [userState, setUserState] = useState(initState)
   const [allIssues, setAllIssues] = useState([])
   const [comments, setComments] = useState([])
-  
+
+ 
 
   function signup(credentials) {
     axios.post("/auth/signup", credentials)
@@ -92,7 +93,7 @@ export default function UserProvider(props) {
       .then(res => {
         setUserState(prevState => ({
           ...prevState,
-          issues: [...prevState, res.data]
+          issues: [...prevState.issues, res.data]
         }))
       })
       .catch(err => console.log(err.response.data.errMsg))
@@ -107,8 +108,8 @@ export default function UserProvider(props) {
         }))
       })
       .catch(err => console.log(err.response.data.errMsg))
-    }
-    
+  }
+
 
   function getAllIssues() {
     userAxios.get("/api/issues/all")
@@ -116,13 +117,13 @@ export default function UserProvider(props) {
       .catch(err => console.log(err.response.data.errMsg))
   }
 
-  function getComments(){
+  function getComments() {
     userAxios.get("/api/comments/all")
-    .then(res => setComments(res.data))
-    .catch(err => console.log(err.response.data.errMsg))
+      .then(res => setComments(res.data))
+      .catch(err => console.log(err.response.data.errMsg))
   }
 
-// console.log(comments)
+  // console.log(comments)
 
   return (
     <UserContext.Provider
@@ -133,13 +134,15 @@ export default function UserProvider(props) {
         logout,
         handleAuthErr,
         resetAuthErr,
-        addIssue, 
+        addIssue,
         getAllIssues,
         allIssues,
         getUserIssues,
         comments,
         setComments,
-        userAxios
+        userAxios,
+        setAllIssues,
+        setUserState
       }}>
       {props.children}
     </UserContext.Provider>

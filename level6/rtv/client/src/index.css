@@ -8,8 +8,21 @@
   text-decoration: none;
 }
 
-.app {
-  background-color: #eee9;
+.navlink {
+  text-decoration: none;
+  color: black;
+}
+
+body {
+  color: black;
+  background:
+    radial-gradient(circle farthest-side at 0% 50%, #fb1 23.5%, rgba(240, 166, 17, 0) 0)21px 30px,
+    radial-gradient(circle farthest-side at 0% 50%, #B71 24%, rgba(240, 166, 17, 0) 0)19px 30px,
+    linear-gradient(#fb1 14%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 85%, #fb1 0)0 0,
+    linear-gradient(150deg, #fb1 24%, #B71 0, #B71 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #B71 0, #B71 76%, #fb1 0)0 0,
+    linear-gradient(30deg, #fb1 24%, #B71 0, #B71 26%, rgba(240, 166, 17, 0) 0, rgba(240, 166, 17, 0) 74%, #B71 0, #B71 76%, #fb1 0)0 0,
+    linear-gradient(90deg, #B71 2%, #fb1 0, #fb1 98%, #B71 0%)0 0 #fb1;
+  background-size: 40px 60px;
 }
 
 .navbar {
@@ -17,7 +30,7 @@
   justify-content: space-around;
   align-items: center;
   height: 40px;
-  background-color: #3339;
+  background-color: rgba(224, 224, 224, 0.6);
 }
 
 .auth-container {
@@ -27,17 +40,17 @@
   height: 100vh;
 }
 
-.auth-container > h1 {
+.auth-container>h1 {
   font-size: 2em;
   margin: 24px;
 }
 
-.auth-container > p {
+.auth-container>p {
   margin: 16px;
   text-decoration: underline;
 }
 
-.auth-container > form {
+.auth-container>form {
   border: 1px solid #3339;
   padding: 20px;
   border-radius: 5px;
@@ -47,13 +60,13 @@
   flex-direction: column;
 }
 
-.auth-container > form > input {
+.auth-container>form>input {
   margin: 16px 8px;
   padding: 8px;
   border-radius: 4px;
 }
 
-.auth-container > form > button {
+.auth-container>form>button {
   margin: 16px 8px;
   padding: 8px;
   border-radius: 4px;
@@ -62,6 +75,8 @@
 
 .public {
   height: 100vh;
+  display: flex;
+  justify-content: center;
 }
 
 .profile {
@@ -71,18 +86,18 @@
   height: 100vh;
 }
 
-.profile > h1 {
+.profile>h1 {
   margin: 8px;
   font-size: 2em;
   text-align: center;
 }
 
-.profile > h3 {
+.profile>h3 {
   margin: 16px 0;
   text-decoration: underline;
 }
 
-.profile > form {
+.profile>form {
   display: flex;
   flex-direction: column;
   margin: 16px 0;
@@ -92,32 +107,32 @@
   border-radius: 5px
 }
 
-.profile > form > input,
-.profile > form > button {
+.profile>form>input,
+.profile>form>button {
   margin: 8px 0;
   padding: 8px;
   border-radius: 5px
 }
 
-.Issue-list{
+.Issue-list {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
 }
 
-.issue{
+.issue {
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 5px;
   border: solid black 3px;
-  background-color: lightcyan;
+  background-color: rgb(246, 252, 252);
   height: fit-content;
   width: 400px;
 }
 
-.Issue-title{
+.Issue-title {
   display: flex;
   justify-content: center;
   margin: 5px;
@@ -125,7 +140,7 @@
   border-radius: 2px;
 }
 
-.Issue-description{
+.Issue-description {
   display: flex;
   justify-content: center;
   border: solid black 1px;
@@ -134,17 +149,18 @@
   min-height: 100px;
 }
 
-.comment-form{
+.comment-form {
   justify-content: space-between;
   align-items: center;
 }
 
-.comment-input{
+.comment-input {
   width: 20dvw;
 }
-.comment-btn{
-display: flex;
-flex-direction: column;
-width: 20dvw;
-justify-content: center;
+
+.comment-btn {
+  display: flex;
+  flex-direction: column;
+  width: 20dvw;
+  justify-content: center;
 }
