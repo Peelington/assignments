@@ -61,3 +61,66 @@
   padding: 8px;
   border-radius: 4px;
 }
+
+.exercise{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 15px;
+  padding: 10px;
+  width: 30dvw;
+  border: 2px solid black;
+}
+
+.exercise-name{
+  display: flex;
+  justify-content: center;
+}
+
+.exercise-muscle{
+  margin: 5px;
+  text-decoration: underline;
+}
+
+.exercise-difficulty{
+  margin: 5px;
+}
+
+.exercise-instructions{
+  margin: 5px;
+  padding: 5px;
+  border: 1px solid black;
+  background-color: rgb(231, 90, 90);
+}
+
+.goal-contanier{
+  display: flex;
+  justify-content: center;
+}
+.goal-form{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid black;
+  width: 60dvw;
+  display: flex;
+  margin: 20px;
+  padding: 10px;
+}
+
+.goal-input{
+  margin: 15px;
+}
+
+.goal-posted{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.goal-listed{
+  margin: 5px;
+  padding: 5px;
+}
+

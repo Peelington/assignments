@@ -11,8 +11,8 @@ import './App.css'
 
 function App() {
 
-  const { token, logout } = useContext(ExerciseContext)
-
+  const { token, logout, goal } = useContext(ExerciseContext)
+  
 
   return (
     <div className='app'>
@@ -31,7 +31,7 @@ function App() {
         <Route
           path="/goals"
           element={<ProtectedRoute token={token} redirectTo="/">
-            <Goals />
+            <Goals goal={goal} />
           </ProtectedRoute>
           }
         />

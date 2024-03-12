@@ -2,11 +2,12 @@ import React, { useState, useContext, useEffect, createContext } from "react";
 import axios from 'axios'
 
 
- export const ExerciseContext = createContext()
+export const ExerciseContext = createContext()
 
- export default function ExerciseProvider(props) {
+export default function ExerciseProvider(props) {
 
   const userAxios = axios.create()
+
 
   userAxios.interceptors.request.use(config => {
     const token = localStorage.getItem('token')
@@ -19,11 +20,14 @@ import axios from 'axios'
     user: JSON.parse(localStorage.getItem("user")) || {},
     token: localStorage.getItem("token") || "",
     goal: [],
+    myWorkouts: [],
     errMsg: ""
   }
 
-
   const [userState, setUserState] = useState(initState)
+  // const [goal, setGoal] = useState([])
+  const [myWorkouts, setMyWorkouts] = useState([])
+
 
   function signup(credentials) {
     axios.post("/auth/signup", credentials)
@@ -47,10 +51,14 @@ import axios from 'axios'
         const { user, token } = res.data
         localStorage.setItem("token", token)
         localStorage.setItem("user", JSON.stringify(user))
+        getMyWorkouts()
+        getGoal()
         setUserState(prevUserState => ({
           ...prevUserState,
           user,
-          token
+          token,
+          myWorkouts: [],
+          goal: []
 
         }))
       })
@@ -88,15 +96,32 @@ import axios from 'axios'
           goal: [...prevState.goal, res.data]
         }))
       })
-      .catch(err => console.log(err.response.data.errMsg))
+      .catch(err => console.log(err))
   }
 
-  function getExercises(exercise){
-    axios.get(`https://api.api-ninjas.com/v1/exercises?muscle=${exercise}`)
-    .then()
+  function getGoal() {
+    userAxios.get('/api/goal/user')
+      .then(res => setUserState(prevState => {
 
+        return {
+          ...prevState,
+          goal: res.data
+        }
+      }))
+      .catch(err => console.log(err))
   }
 
+  function getMyWorkouts() {
+    userAxios.get("/api/home/workouts/user")
+      .then(res => {
+        setUserState(prevState => ({
+          ...prevState,
+          myWorkouts: [res.data]
+        }))
+      })
+  }
+
+  
 
   return (
     <ExerciseContext.Provider
@@ -106,7 +131,10 @@ import axios from 'axios'
         login,
         logout,
         resetAuthErr,
-        addGoal
+        addGoal,
+        getMyWorkouts,
+        myWorkouts,
+        getGoal
       }}>
       {props.children}
     </ExerciseContext.Provider>

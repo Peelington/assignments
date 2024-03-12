@@ -24,6 +24,7 @@ connectToDB().then(() => console.log('Connected To DB'))
 app.use('/auth', require('./routes/authRouter.js'))
 app.use('/api', expressjwt({ secret: process.env.SECRET, algorithms: ['HS256'] }))
 app.use('/api/goal', require('./routes/goalRouter.js'))
+app.use('/api/home', require('./routes/savedRouter.js'))
 
 app.use((err, req, res, next) => {
   console.log(err)

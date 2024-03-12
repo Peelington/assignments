@@ -1,41 +1,20 @@
-import React from "react";
+import React, {useContext} from "react";
+import { ExerciseContext } from '../context/ExerciseContext'
 
-export default function Exercise() {
+export default function Exercise(props) {
 
-  const exercise_array = [
-    "Select Exercise",
-    "Abdominals",
-    "Abductors",
-    "Adductors",
-    "Biceps",
-    "Calves",
-    "Chest",
-    "Forearms",
-    "Glutes",
-    "Hamstrings",
-    "Lats",
-    "Lower_back",
-    "Middle_back",
-    "Neck",
-    "Quadriceps",
-    "Traps",
-    "Triceps"
-]
+  const {name, muscle, difficulty, instructions, workout } = props
+  const { getMyWorkouts } = useContext(ExerciseContext)
+  // console.log("workout", workout)
 
-const exerciseList = exercise_array.map(exercise => {
-  return (
-    <option value={exercise.toLowerCase()}>{exercise}</option>
-  )
-})
-
-  return (
+return (
 <div className="exercise">
 
-    <h1>Exercise name: </h1>
-    <select>{exerciseList}</select>
-    <p>Muscle:</p>
-    <p>Difficulty</p>
-    <p>Instructions</p>
+    <h1 className="exercise-name">Exercise name: {name}</h1>
+    <p className="exercise-muscle">Muscle: {muscle}</p>
+    <p className="exercise-difficulty">Difficulty: {difficulty}</p>
+    <p className="exercise-instructions" >Instructions: {instructions}</p>
+    <button onClick={getMyWorkouts}> Add to your workouts</button>
 </div>
   )
 }

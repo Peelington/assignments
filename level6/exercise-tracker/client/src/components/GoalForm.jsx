@@ -2,9 +2,9 @@ import React, { useContext, useState } from 'react'
 import { ExerciseContext } from '../context/ExerciseContext'
 
 
-export default function GoalForm(props){
+export default function GoalForm(props) {
 
-  const {addGoal} =useContext(ExerciseContext)
+  const { addGoal } = useContext(ExerciseContext)
 
   const initInputs = {
     weight: "",
@@ -30,45 +30,55 @@ export default function GoalForm(props){
     setInputs(initInputs)
   }
 
-  const { weight, waist, chest, arms} = inputs
+  const { weight, waist, chest, arms } = inputs
 
   return (
+    <div className='goal-contanier'>
 
-    <form>
-      <h2>Weight</h2>
-      <input
-        type="text"
-        name="weight"
-        value={weight}
-        onChange={handleChange}
-        placeholder="Goal Weight" />
+      <form className='goal-form'>
+        <div className='goal-input'>
+          <h2>Weight</h2>
+          <input
+            type="text"
+            name="weight"
+            value={weight}
+            onChange={handleChange}
+            placeholder="Goal Weight" />
+        </div>
 
-      <h2>Waist</h2>
-      <input
-        type="text"
-        name="waist"
-        value={waist}
-        onChange={handleChange}
-        placeholder="Waist size" />
+        <div className='goal-input'>
+          <h2>Waist</h2>
+          <input
+            type="text"
+            name="waist"
+            value={waist}
+            onChange={handleChange}
+            placeholder="Waist size" />
+        </div>
 
-      <h2>Chest</h2>
-      <input
-        type="text"
-        name="chest"
-        value={chest}
-        onChange={handleChange}
-        placeholder="Chest size" />
+        <div className='goal-input'>
+          <h2>Chest</h2>
+          <input
+            type="text"
+            name="chest"
+            value={chest}
+            onChange={handleChange}
+            placeholder="Chest size" />
+        </div>
 
-      <h2>Arm</h2>
-      <input
-        type="text"
-        name="arms"
-        value={arms}
-        onChange={handleChange}
-        placeholder="Arm size" />
+        <div className='goal-input'>
+          <h2>Arm</h2>
+          <input
+            type="text"
+            name="arms"
+            value={arms}
+            onChange={handleChange}
+            placeholder="Arm size" />
+        </div>
 
-        <button onClick={handleSubmit}>Save Goal</button>
+        <button className="goalBtn" onClick={handleSubmit}>Save Goal</button>
 
-    </form>
+      </form>
+    </div>
   )
 }
