@@ -23,17 +23,23 @@ export default function GoalForm(props) {
     }))
   }
 
+  
 
   function handleSubmit(e) {
     e.preventDefault()
     addGoal(inputs)
     setInputs(initInputs)
+    console.log("button clicked")
   }
+
+  console.log(inputs)
 
   const { weight, waist, chest, arms } = inputs
 
   return (
-    <div className='goal-contanier'>
+    <div className='goal-form-container'>
+
+      <h2 className='form-display'>Keep track of your progress</h2>
 
       <form className='goal-form'>
         <div className='goal-input'>
@@ -43,7 +49,7 @@ export default function GoalForm(props) {
             name="weight"
             value={weight}
             onChange={handleChange}
-            placeholder="Goal Weight" />
+            placeholder="Current Weight" />
         </div>
 
         <div className='goal-input'>
@@ -76,7 +82,7 @@ export default function GoalForm(props) {
             placeholder="Arm size" />
         </div>
 
-        <button className="goalBtn" onClick={handleSubmit}>Save Goal</button>
+        <button className="goalBtn" type="submit" onClick={handleSubmit}>Log</button>
 
       </form>
     </div>

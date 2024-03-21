@@ -142,21 +142,21 @@
 
 // Write a function called createTable(rows, columns) that takes two parameters: rows (number of rows) and columns (number of columns). The function should generate a table represented as an array of arrays, where each inner array represents a row and contains the row's data. Each cell in the table should contain the product of its row index and column index.
 
-function createTable(rows, columns) {
-  let table = []
-  for(let i = 0; i < rows; i++){
-    let row = []
-    for(let j = 0; j < columns; j++){
-      row.push(i*j)
-    }
-    table.push(row)
-  }
-  return table
-}
+// function createTable(rows, columns) {
+//   let table = []
+//   for(let i = 0; i < rows; i++){
+//     let row = []
+//     for(let j = 0; j < columns; j++){
+//       row.push(i*j)
+//     }
+//     table.push(row)
+//   }
+//   return table
+// }
 
 // Test the function with different values
-const table1 = createTable(3, 4);
-console.log(table1);
+// const table1 = createTable(3, 4);
+// console.log(table1);
 
 /* Expected Outcome:
 [
@@ -166,8 +166,18 @@ console.log(table1);
 ]
  */
 
-const table2 = createTable(5, 5);
-console.log(table2);
-  
+// const table2 = createTable(5, 5);
+// console.log(table2);
 
+// function average(nums){
+//   let total = 0;
+//   for(let i = 0; i < nums.length; i++){
+//     total = total += nums[i]
+//     sum = total / nums.length
+//   }
+//   return sum
+// }
+// console.log(average([2,5,6]))
+  
+// average(2, 5, 6)
   

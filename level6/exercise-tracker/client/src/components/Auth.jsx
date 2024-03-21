@@ -20,7 +20,7 @@ export default function Auth() {
 
   function handleSignup(e) {
     e.preventDefault()
-    console.log(inputs)
+    // console.log(inputs)
     signup(inputs)
   }
 
@@ -37,7 +37,7 @@ export default function Auth() {
   return (
     <div className="auth-container">
       <h1>Login to get your SWOL on</h1>
-      {!toggle ?
+      {toggle ?
         <>
           <AuthForm
             handleChange={handleChange}
@@ -59,6 +59,8 @@ export default function Auth() {
           />
           <p onClick={toggleForm}>Not a member?</p>
         </>
+
+        
       }
     </div>
   )

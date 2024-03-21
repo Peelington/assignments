@@ -27,11 +27,13 @@ goalRouter.get("/user", (req, res, next) => {
 goalRouter.post("/", (req, res, next) => {
   req.body.user = req.auth._id
   const newGoal = new Goal(req.body)
+  console.log(newGoal)
   newGoal.save((err, savedGoal) => {
     if(err){
       res.status(500)
       next(err)
     }
+    console.log(savedGoal)
     return res.status(201).send(savedGoal)
   })
 })

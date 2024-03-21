@@ -26,7 +26,7 @@ export default function ExerciseProvider(props) {
 
   const [userState, setUserState] = useState(initState)
   // const [goal, setGoal] = useState([])
-  const [myWorkouts, setMyWorkouts] = useState([])
+  // const [myWorkouts, setMyWorkouts] = useState([])
 
 
   function signup(credentials) {
@@ -57,8 +57,8 @@ export default function ExerciseProvider(props) {
           ...prevUserState,
           user,
           token,
-          myWorkouts: [],
-          goal: []
+          // myWorkouts: [],
+          // goal: []
 
         }))
       })
@@ -71,6 +71,9 @@ export default function ExerciseProvider(props) {
     setUserState({
       user: {},
       token: "",
+      myWorkouts: [],
+      goal: []
+
     })
   };
 
@@ -111,17 +114,40 @@ export default function ExerciseProvider(props) {
       .catch(err => console.log(err))
   }
 
-  function getMyWorkouts() {
-    userAxios.get("/api/home/workouts/user")
+  function addExercise(newExercise) {
+    userAxios.post("/api/home", newExercise)
       .then(res => {
         setUserState(prevState => ({
           ...prevState,
-          myWorkouts: [res.data]
+          myWorkouts: [...prevState.myWorkouts, res.data]
         }))
       })
+      .catch(err => console.log(err))
   }
 
-  
+  function getMyWorkouts() {
+    userAxios.get("/api/home/workouts")
+      .then(res => {
+        setUserState(prevState => ({
+          ...prevState,
+          myWorkouts: res.data
+        }))
+      })
+      .catch(err => console.log(err))
+  }
+
+  function deleteWorkout(exerciseId) {
+    userAxios.delete(`/api/home/${exerciseId}`)
+      .then(() => {
+        setUserState(prevState => ({
+          ...prevState,
+          myWorkouts: prevState.myWorkouts.filter(exercise => exercise._id !== exerciseId)
+        }));
+      })
+      .catch(err => console.log(err.response));
+  }
+
+
 
   return (
     <ExerciseContext.Provider
@@ -133,8 +159,10 @@ export default function ExerciseProvider(props) {
         resetAuthErr,
         addGoal,
         getMyWorkouts,
-        myWorkouts,
-        getGoal
+        // myWorkouts,
+        getGoal,
+        addExercise,
+        deleteWorkout
       }}>
       {props.children}
     </ExerciseContext.Provider>

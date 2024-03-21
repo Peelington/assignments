@@ -1,8 +1,11 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import axios from 'axios'
+import { ExerciseContext } from "../context/ExerciseContext";
 import Exercise from "./Exercise";
 
 export default function Workouts() {
+
+  const { addExercise } = useContext(ExerciseContext)
 
   const [muscleGroup, setMuscleGroup] = useState("")
   const [exerciseChosen, setExerciseChosen] = useState([])
@@ -38,40 +41,62 @@ export default function Workouts() {
   }
   // console.log(muscleGroup)
 
+  // function addNew() {
+  //   addExercise({
+  //     name: name,
+  //     muscle: muscle,
+  //     difficulty: difficulty,
+  //     instructions: instructions,
+  //     equipment: equipment,
+  //     type: type
+  //   })
+  // }
+
   axios.defaults.headers.common["x-api-key"] = "cLZn1xxZAL8XFNXNCjSodQ==BbvQac5011FSGNbd"
 
   function getExercises() {
     const url = `https://api.api-ninjas.com/v1/exercises?muscle=${muscleGroup}`
     axios.get(url)
-    .then(res => setExerciseChosen(res.data))
-    .catch(err => console.log(err.response.data.errMsg))
-    
+      .then(res => setExerciseChosen(res.data))
+      .catch(err => console.log(err.response.data.errMsg))
+
   }
-  
-  const exerciseComponent = exerciseChosen.map(workout =>{
+
+
+  function savedExercise(data) {
+    addExercise(data)
+  }
+
+
+  const exerciseComponent = exerciseChosen.map(workout => {
     return (
-    <Exercise 
-      key={workout.name}
-      name={workout.name}
-      muscle={workout.muscle}
-      difficulty={workout.difficulty}
-      instructions={workout.instructions}
-      workout={workout}
-    />
+      <Exercise
+        key={workout.name}
+        name={workout.name}
+        muscle={workout.muscle}
+        difficulty={workout.difficulty}
+        instructions={workout.instructions}
+        equipment={workout.equipment}
+        type={workout.type}
+        btnFunct={savedExercise}
+        btnText={"Save Exercise"}
+        isDeleting={false}
+      />
     )
   })
 
   // console.log(exerciseComponent, "exercise")
   // console.log(exerciseChosen, "chosen exercise")
   return (
-    <div>
 
-      <h1>workouts</h1>
+    <div className="workout-container">
+      <h1 className="workout-text">Workouts</h1>
       <select onChange={handleChange}>{exerciseList}</select>
       <button onClick={getExercises}>Pick Exercise</button>
+        <div className="exercise-container">
+        {exerciseComponent}
+      </div>
 
-      {exerciseComponent}
-      
     </div>
   )
 }

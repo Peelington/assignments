@@ -8,7 +8,7 @@ export default function Goals(props) {
 
   const { goal } = props
 
-  console.log(props)
+  // console.log(props)
   
   const goals = goal.map(goal => <SingleGoal {...goal} />)
 
@@ -17,7 +17,7 @@ export default function Goals(props) {
   }, [])
 
   return (
-    <div>
+    <div className='main goal-container'>
       <GoalForm />
       {goals}
     </div>
